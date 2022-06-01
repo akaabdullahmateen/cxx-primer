@@ -3,9 +3,11 @@
 
 #include <iostream>
 #include <cstddef>
+#include <vector>
 
 using std::cout;
 using std::endl;
+using std::vector;
 
 int main()
 {
@@ -13,6 +15,7 @@ int main()
     size_t pos = 0;
     int arr[size];
     int dup[size];
+    vector<int> vec;
     for (int &i : arr)
     {
         i = pos++;
@@ -22,6 +25,15 @@ int main()
         dup[pos] = arr[pos];
     }
     for (int i : dup)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
+    for (int i : arr)
+    {
+        vec.push_back(i);
+    }
+    for (int i : vec)
     {
         cout << i << " ";
     }
