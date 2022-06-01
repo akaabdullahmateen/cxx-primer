@@ -11,3 +11,6 @@
 # Test files
 test.cpp
 test.o
+
+# VS Code settings
+.vscode
