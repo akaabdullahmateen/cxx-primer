@@ -1,0 +1,8 @@
+# Exercise 2.38: Describe the differences in type deduction between `decltype` and `auto`.
+
+**Give an example of an expression where `auto` and `decltype` will deduce the same type and an example where they will deduce differing types.**
+
+ -  Using `auto` makes compiler deduce type from the associated initializer. By implication, a variable defined using `auto` must have an initializer. `decltype`, however, does not require an initializer as it only deduces type from an expression. Moreover, the compiler *analyzes* the expression to determine its type and does not *evaluate* it.
+ - Since using references as initializer is really using the bounded object as initializer, `auto` deduces the type for the object - which cannot be a reference. To explicitly define a reference, the following syntax is used: `auto &ref = someRef;`. Whereas, `decltype` is the only context where a reference is not treated as a synonym, and the deduced type has the reference modifier, i.e., references are returned, not the bounded object type.
+ - `auto` ignores top-level `const` however, low-level `const` are kept. Thereby, const-qualifying a variable with type deduced from `auto` needs explicit syntax: `const auto someConstObject = anotherConstObject;`. `decltype` on the other hand, returns the actual type of the variable including top-level `const`.
+ - The type deduction done by `decltype` depends on the form of its given expression - parentheses enclosure causes the variable to be treated as expressions which is lvalue, thereby, `decltype` yields reference. `auto` does not have such implications.

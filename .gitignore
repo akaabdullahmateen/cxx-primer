@@ -1,0 +1,13 @@
+# Executables
+*.out
+*.exe
+*.bin
+
+# Object files
+.o
+.s
+.S
+
+# Test files
+test.cpp
+test.o

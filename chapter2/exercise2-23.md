@@ -1,0 +1,5 @@
+# Exercise 2.23: Given a pointer `p`, can you determine whether `p` points to a valid object? If so, how? If not, why not?
+
+No, you cannot determine whether the pointer `p` points to a valid object. Because, if `p` is invalid, i.e., contains garbage address, trying to access its value to check whether the address is valid, i.e., points to a valid object, will cause undefined behavior, and may cause program to crash. Also, maintaining meta data information about what constitutes a valid pointer is expensive.
+
+One way to tackle this problem would be to check code and see the statements where the pointer is initialized / assigned. And see if they are correctly assigned to an address of a valid object. Another solution would be to use smart pointers which involves tracking the ownership of a piece of memory, delocating and allocating etc.
