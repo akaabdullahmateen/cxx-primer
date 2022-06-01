@@ -179,3 +179,7 @@ int k = p[-2];		// p[-2] is the same element as ia[0]
 ```
 
 This last example points out an important difference between arrays and library types such as `vector` and `string` that have subscript operators. The library types force the index used with a subscript to be an unsigned value. The built-in subscript operator does not. The index used with the built-in subscript operator can be a negative value. Of course, the resulting address must point to an element in (or one past the end of) the array to which the original pointer points. Unlike subscripts for `vector` and `string`, the index of the built-in subscript operator is not an unsigned type.
+
+## C-style character strings
+
+Although C++ supports C-style strings, they should not be used by C++ programs. C-style strings are a surprisingly rich source of bugs and are the root cause of many security problems. They’re also harder to use!
