@@ -1,0 +1,5 @@
+# Exercise 4.3: Order of evaluation for most of the binary operators is left undefined to give the compiler opportunities for optimization.
+
+**This strategy presents a trade-off between efficient code generation and potential pitfalls in the use of the language by the programmer. Do you consider that an acceptable trade-off? Why or why not?**
+
+No I do not consider this as an acceptable trade-off. In modern computers, the clock speed of processors and main memory, along with the advent of multiple cores, and mutlithreaded applications, it is more reasonable to trade optimization for certainity. The optimization introduced by compiler - unless it is several hundred orders of magnitude - should not result in noticable difference in performace. However, security problems, key strokes, ease of development, less complicated code, readability, maintainability; all outweight this small potential performance increase.
