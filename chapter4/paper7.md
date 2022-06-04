@@ -34,7 +34,9 @@ The larger `char` types `wchar`, `char16_t`, `char32_t`, are promoted to the sma
 
 ## Operands of unsigned type
 
-If the operands of an operator have different types, those operands are ordinarilly converted to a common type. If any operand is `unsigned` type, the type to which the operands are converted depends on the relative sizes of the integral types on the machine. As usual, integral promotion happens first. If the resulting type(s) match, no further conversion is needed. If both (possibly promoted) operands have the same signedness, then the operand with the smaller type is converted to the larger type.
+If the operands of an operator have different types, those operands are ordinarilly converted to a common type. If any operand is `unsigned` type, the type to which the operands are converted depends on the relative sizes of the integral types on the machine.
+
+As usual, integral promotion happens first. If the resulting type(s) match, no further conversion is needed. If both (possibly promoted) operands have the same signedness, then the operand with the smaller type is converted to the larger type.
 
 When signedness differs and the type of the unsigned operand is the same as or larger than that of the signed operand, the signed operand is convertd to the unsigned type. For example, given an `unsigned int` and an `int`, the `int` is converted to `unsigned int`. It is worth noting that if `int` has negative value, the result will be converted with the same results.
 
