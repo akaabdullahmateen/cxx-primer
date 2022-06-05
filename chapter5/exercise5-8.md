@@ -1,0 +1,5 @@
+# Exercise 5.8: What is a “dangling else”? How are else clauses resolved in C++?
+
+Dangling `else` is a problem in code whereby more `if` statements are present than `else` to match. Thus, it becomes difficult to figure out which `if` matches some `else` statement. Such a problem is common in programming languages that allows both freestanding `if` and `if else` statements.
+
+C++ solves this ambiguity by specifying that `else` is matched with the closest preceding unmatched `if` statement. So, in case where an `else`'s immediately preceding `if` has no matched `else`, it is matched with this `if`. If, however, the immediately preceding `if` does have a matching `else`, the `if` before this one is considered, and so on, until an unmatched `if` is found, or no `if` is found in current block span / scope - in which case, the program is in error.
