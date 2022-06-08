@@ -102,3 +102,21 @@ In C++, names have scopes, and objects have lifetime. It is important to underst
 - The lifetime of an object is the time during the program's execution that the object exists
 
 As we have seen, the body of a function is a statement block. As usual, the block forms a new scope in which we can define varibles. Parameters and variables defined inside a function body are referred to as local variables. They are local to that function and hide declarations of the same name made in an outer scope.
+
+Objects defined outside any function exists throughout the program execution. Such objects are created when the program starts, and are not destroyed until the program end. The lifetime of local variables depends on how it is defined.
+
+### Automatic objects
+
+The objects that correspond to ordinary local variables are created when the function's control passes through the variable's definition. They are destroyed when control passes through the end of the block in which the variable is defined. Objects that exist only while a block is executing are known as automatic objects. After execution exits a block, the value of the automatic objects created in that block are undefined.
+
+Parameters are automatic objects. Storage for the parameters is allocated when the function begins. Parameters are defined in the scope of the function body. Hence, they are destroyed when the function terminates.
+
+Automatic objects corresponding to the function's parameters are initialized by the arguments passed to the function. Automatic objects corresponding to local variables are initialized if their definition contains an initializer. Otherwise, they are default initialized, which means that uninitialized local variables of built-in types have undefined values.
+
+### Local `static` objects
+
+It can be useful to have a local variable whose lifetime continues across calls to the function. We obtain such objects by defining a local variable as `static`. Each local static object is initialized before the first time execution passes through the object defintion. Local static objects are not destroyed when a function ends; they are destroyed when the program terminates.
+
+Before control flows through the definition of `static` object for the first time, they are created and given an initial value of 0. Each call increments static object and returns its new value. Whenever the function is executed, the static variable already exists and has whatever value in that variable the last time the function exited. Thus, on the second invocation, the value of `ctr` for example will be 1 and 2 on the second call, and so on.
+
+If a local static variable has no explicit initializer, it is value initialized. Therefore, local static objects of built-in types are initialized to 0.
