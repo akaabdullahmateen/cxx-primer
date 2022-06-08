@@ -4,9 +4,9 @@
 *.bin
 
 # Object files
-.o
-.s
-.S
+*.o
+*.s
+*.S
 
 # Test files
 test.cpp
