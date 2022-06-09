@@ -15,8 +15,8 @@ string (&dummy_func())[10]{
 }
 
 int main(){
-	string (&arr)[10] = dummy_func();
-	for(const string &s : arr){
+	string (&arr_local)[10] = dummy_func();
+	for(const string &s : arr_local){
 		cout << s << endl;
 	}
 	return 0;
