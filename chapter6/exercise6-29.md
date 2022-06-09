@@ -1,0 +1,3 @@
+# Exercise 6.29: When you use an `initializer_list` in a range `for` would you ever use a reference as the loop control variable? If so, why? If not, why not?
+
+Elements in `initializer_list` are all `const`-qualified, therefore, their values cannot be modified through a reference - if the control variable is declared as a reference, it must be reference to `const`. However, large container elements such as `string` are inefficient when copy-assigned to control variable; therefore, it is better to use them as a reference to `const` - this will prevent copying and will not let modification of the element.
